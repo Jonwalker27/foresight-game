@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORESIGHT - Dimensional Intelligence Training</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
+</head>
+<body>
+    <div class="game-container">
+        <header>
+            <h1>FORESIGHT</h1>
+            <h2>Dimensional Intelligence Training</h2>
+        </header>
+
+        <div class="game-area">
+            <div id="canvas-container"></div>
+            
+            <div class="game-ui">
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Score</span>
+                        <span id="score" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Level</span>
+                        <span id="level" class="stat-value">1</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Time</span>
+                        <span id="time" class="stat-value">60</span>
+                    </div>
+                </div>
+
+                <div class="controls">
+                    <button id="start-btn" class="btn primary-btn">Start Game</button>
+                    <button id="tutorial-btn" class="btn secondary-btn">How to Play</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h2 id="modal-title">Welcome to FORESIGHT</h2>
+                <div id="modal-body">
+                    <p>Train your dimensional intelligence - the ability to see patterns others miss and anticipate what's coming before it emerges.</p>
+                    
+                    <h3>How to Play:</h3>
+                    <ol>
+                        <li><strong>Pattern Anticipation:</strong> Predict where patterns will emerge before they fully appear.</li>
+                        <li><strong>Signal Detection:</strong> Focus on meaningful signals while filtering out noise.</li>
+                        <li><strong>Multi-Tracking:</strong> Monitor multiple evolving patterns simultaneously.</li>
+                    </ol>
+                    
+                    <p>As you progress, the challenges will become more complex - testing and strengthening your dimensional intelligence.</p>
+                    
+                    <p><em>"The ability to recognize patterns before others is what separates exceptional performers from the merely good."</em></p>
+                </div>
+                <button id="modal-btn" class="btn primary-btn">Got it</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/patterns.js"></script>
+    <script src="js/levels.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>

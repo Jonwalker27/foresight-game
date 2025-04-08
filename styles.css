@@ -1,0 +1,279 @@
+:root {
+    --primary-color: #3A10E5;
+    --secondary-color: #8367C7;
+    --accent-color: #00F0FF;
+    --accent-color-alt: #F637EC;
+    --background-color: #0A0A16;
+    --text-color: #FFFFFF;
+    --text-secondary: rgba(255, 255, 255, 0.7);
+    --success-color: #00F5A0;
+    --error-color: #FF3860;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--background-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+}
+
+.game-container {
+    width: 100%;
+    max-width: 1000px;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--text-color);
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    position: relative;
+    display: inline-block;
+}
+
+h1:after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-color), var(--accent-color-alt));
+    border-radius: 3px;
+}
+
+h2 {
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: var(--text-secondary);
+    letter-spacing: 2px;
+}
+
+.game-area {
+    background: rgba(12, 12, 24, 0.7);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+#canvas-container {
+    width: 100%;
+    height: 500px;
+    position: relative;
+}
+
+#canvas-container canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.game-ui {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stats {
+    display: flex;
+    gap: 30px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 5px;
+}
+
+.stat-value {
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.controls {
+    display: flex;
+    gap: 15px;
+}
+
+.btn {
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border: none;
+    outline: none;
+}
+
+.primary-btn {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    box-shadow: 0 4px 15px rgba(58, 16, 229, 0.3);
+}
+
+.primary-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(58, 16, 229, 0.4);
+}
+
+.primary-btn:active {
+    transform: translateY(1px);
+}
+
+.secondary-btn {
+    background: transparent;
+    color: var(--text-color);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.secondary-btn:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: linear-gradient(135deg, rgba(17, 17, 34, 0.95), rgba(10, 10, 22, 0.95));
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    max-width: 600px;
+    width: 90%;
+    margin: 10% auto;
+    padding: 30px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.close-btn {
+    color: var(--text-secondary);
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-btn:hover {
+    color: var(--text-color);
+}
+
+#modal-title {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    color: var(--text-color);
+}
+
+#modal-body {
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+#modal-body h3 {
+    margin: 15px 0 10px;
+    color: var(--accent-color);
+}
+
+#modal-body ol, #modal-body ul {
+    padding-left: 20px;
+    margin: 10px 0;
+}
+
+#modal-body li {
+    margin-bottom: 10px;
+}
+
+#modal-body strong {
+    color: var(--accent-color-alt);
+}
+
+#modal-body em {
+    display: block;
+    margin-top: 20px;
+    font-style: italic;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+/* Animation classes */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.pulse {
+    animation: pulse 0.5s ease-in-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    .game-ui {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .stats {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .controls {
+        width: 100%;
+    }
+    
+    .btn {
+        flex: 1;
+    }
+    
+    #canvas-container {
+        height: 400px;
+    }
+}
